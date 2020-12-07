@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="AESfunctions.cpp" path="D:\Dr.R.N.Biswas_Project_Files\Major_Project1\project\New\AES_HLS\source\AESfunctions.cpp"/>
+    <originFiles name="AESfunctions.h" path="D:\Dr.R.N.Biswas_Project_Files\Major_Project1\project\New\AES_HLS\source\AESfunctions.h"/>
+    <originFiles name="AEStables.h" path="D:\Dr.R.N.Biswas_Project_Files\Major_Project1\project\New\AES_HLS\source\AEStables.h"/>
+  </source>
+  <testbench>
+    <originFiles name="test_AES_full.cpp" path="D:\Dr.R.N.Biswas_Project_Files\Major_Project1\project\New\AES_HLS\source\test_AES_full.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

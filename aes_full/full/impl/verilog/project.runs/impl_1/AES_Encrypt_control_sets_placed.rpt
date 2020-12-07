@@ -1,0 +1,111 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 20 22:24:31 2019
+| Host         : Bob-Militia54 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file AES_Encrypt_control_sets_placed.rpt
+| Design       : AES_Encrypt
+| Device       : xc7a200t
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    58 |
+| Unused register locations in slices containing registers |   113 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              15 |            9 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              67 |           31 |
+| Yes          | No                    | No                     |             429 |          164 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              80 |           36 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-------------------+-------------------------------------------------------------------------------------+----------------------------------------------+------------------+----------------+
+|    Clock Signal   |                                    Enable Signal                                    |               Set/Reset Signal               | Slice Load Count | Bel Load Count |
++-------------------+-------------------------------------------------------------------------------------+----------------------------------------------+------------------+----------------+
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/int_gie                                                  | AES_Encrypt_CRTLSc_s_axi_U/ap_rst_n_inv      |                1 |              1 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/int_ap_start1                                            | AES_Encrypt_CRTLSc_s_axi_U/ap_rst_n_inv      |                1 |              1 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/int_ier9_out                                             | AES_Encrypt_CRTLSc_s_axi_U/ap_rst_n_inv      |                1 |              2 |
+|  ap_clk_IBUF_BUFG | i4_reg_238014_out                                                                   | i4_reg_238[3]_i_1_n_7                        |                1 |              4 |
+|  ap_clk_IBUF_BUFG | state_U/AES_Encrypt_state_ram_U/state_addr_34_reg_537_reg[3]                        |                                              |                1 |              4 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/tmp_24_reg_556_reg[4][0]                          |                                              |                1 |              4 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_CS_fsm[14]_i_1__0_n_7                          |                                              |                1 |              4 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/ap_CS_fsm[11]_i_1_n_7                              |                                              |                1 |              4 |
+|  ap_clk_IBUF_BUFG | ap_sig_249                                                                          |                                              |                1 |              4 |
+|  ap_clk_IBUF_BUFG | ap_NS_fsm[16]                                                                       |                                              |                2 |              4 |
+|  ap_clk_IBUF_BUFG | ap_NS_fsm[4]                                                                        |                                              |                2 |              4 |
+|  ap_clk_IBUF_BUFG | ap_CS_fsm[19]_i_1_n_7                                                               |                                              |                2 |              4 |
+|  ap_clk_IBUF_BUFG | ap_sig_455                                                                          | i_i_reg_250                                  |                2 |              5 |
+|  ap_clk_IBUF_BUFG | indvar6_reg_2830                                                                    | ap_reg_ppiten_pp1_it00                       |                4 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_258                                                                          |                                              |                1 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_473                                                                          | i_0_i_reg_2720                               |                2 |              5 |
+|  ap_clk_IBUF_BUFG | indvar_next_reg_493[4]_i_1_n_7                                                      |                                              |                2 |              5 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/i_reg_626_reg[4]_0[1]                             | grp_AES_Encrypt_MixColumns_fu_294/i_reg_626  |                2 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_464                                                                          | grp_AES_Encrypt_MixColumns_fu_294/SR[0]      |                3 |              5 |
+|  ap_clk_IBUF_BUFG | iv_rsp_read_OBUF                                                                    | indvar_reg_215                               |                2 |              5 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_sig_289                                        |                                              |                1 |              5 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/ap_sig_153                                         |                                              |                2 |              5 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/i_reg_349_reg[4]_0[1]                              | grp_AES_Encrypt_ShiftRows_fu_301/i_reg_349   |                2 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_233                                                                          |                                              |                1 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_317                                                                          |                                              |                2 |              5 |
+|  ap_clk_IBUF_BUFG | ap_sig_435                                                                          | i_0_i1_reg_2270                              |                1 |              5 |
+|  ap_clk_IBUF_BUFG | p_21_in                                                                             |                                              |                4 |              6 |
+|  ap_clk_IBUF_BUFG | ap_sig_333                                                                          |                                              |                3 |              7 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/E[0]                                               |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/E[0]                                              |                                              |                1 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_sig_122                                        |                                              |                5 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_655[7]_i_1_n_7                                |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_664[7]_i_1_n_7                                |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_6600                                          |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_sig_138                                        |                                              |                5 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_6690                                          |                                              |                2 |              8 |
+|  ap_clk_IBUF_BUFG | ap_sig_350                                                                          |                                              |                5 |              8 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_6730                                          |                                              |                2 |              8 |
+|  ap_clk_IBUF_BUFG | reg_3120                                                                            |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | reg_3170                                                                            |                                              |                3 |              8 |
+|  ap_clk_IBUF_BUFG | iv_read_reg_4980                                                                    |                                              |                2 |              8 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/aw_hs                                                    |                                              |                4 |             10 |
+|  ap_clk_IBUF_BUFG |                                                                                     |                                              |                9 |             15 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_sig_96                                         |                                              |                9 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/reg_3600                                           |                                              |                4 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_7460                                          |                                              |               10 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_ShiftRows_fu_301/p_0_in                                             |                                              |                2 |             16 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/rdata[15]_i_1_n_7                                        |                                              |                7 |             16 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/int_Nr[15]_i_1_n_7                                       | AES_Encrypt_CRTLSc_s_axi_U/ap_rst_n_inv      |                6 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/reg_7560                                          |                                              |               11 |             16 |
+|  ap_clk_IBUF_BUFG | AES_Encrypt_CRTLSc_s_axi_U/rdata[15]_i_1_n_7                                        | AES_Encrypt_CRTLSc_s_axi_U/rdata[31]_i_1_n_7 |                8 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/cipher_U/AES_Encrypt_MixColumns_cipher_rom_U/E[0] |                                              |                9 |             16 |
+|  ap_clk_IBUF_BUFG | grp_AES_Encrypt_MixColumns_fu_294/ap_sig_81                                         |                                              |                8 |             16 |
+|  ap_clk_IBUF_BUFG | reg_312_reg[7]_i_6_n_7                                                              |                                              |                9 |             32 |
+|  ap_clk_IBUF_BUFG | rdata_reg[31]_i_3_n_7                                                               |                                              |               11 |             32 |
+|  ap_clk_IBUF_BUFG | tmp_20_reg_598_reg[7]_i_5_n_7                                                       |                                              |                8 |             32 |
+|  ap_clk_IBUF_BUFG | rdata_reg[15]_i_10_n_7                                                              |                                              |                7 |             32 |
+|  ap_clk_IBUF_BUFG |                                                                                     | AES_Encrypt_CRTLSc_s_axi_U/ap_rst_n_inv      |               31 |             67 |
++-------------------+-------------------------------------------------------------------------------------+----------------------------------------------+------------------+----------------+
+
+

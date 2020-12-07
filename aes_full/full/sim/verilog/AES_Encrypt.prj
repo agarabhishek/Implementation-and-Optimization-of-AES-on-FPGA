@@ -1,0 +1,12 @@
+verilog xil_defaultlib "AESL_axi_slave_CRTLSc.v"
+verilog xil_defaultlib "AES_Encrypt.autotb.v"
+verilog xil_defaultlib "AES_Encrypt.v"
+verilog xil_defaultlib "AES_Encrypt_AddRoundKey.v"
+verilog xil_defaultlib "AES_Encrypt_AddRoundKey_1.v"
+verilog xil_defaultlib "AES_Encrypt_CRTLSc_s_axi.v"
+verilog xil_defaultlib "AES_Encrypt_MixColumns.v"
+verilog xil_defaultlib "AES_Encrypt_MixColumns_cipher.v"
+verilog xil_defaultlib "AES_Encrypt_ShiftRows.v"
+verilog xil_defaultlib "AES_Encrypt_SubBytes.v"
+verilog xil_defaultlib "AES_Encrypt_SubBytes_cipher.v"
+

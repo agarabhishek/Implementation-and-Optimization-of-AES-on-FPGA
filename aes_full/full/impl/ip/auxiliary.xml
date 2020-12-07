@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="AES_Encrypt" xd:componentRef="AES_Encrypt" xd:initiationInterval="2668" xd:clockPeriod="4.100000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CRTLSc" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="newState[]" xd:originalName="newState" xd:direction="in" xd:interfaceRef="s_axi_CRTLSc" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="16" xd:dataWidth="8"/>
+  <xd:arg xd:name="expandedKey[]" xd:originalName="expandedKey" xd:direction="in" xd:interfaceRef="s_axi_CRTLSc" xd:busTypeRef="axilite" xd:offset="0x100" xd:arraySize="176" xd:dataWidth="8"/>
+  <xd:arg xd:name="Nr" xd:originalName="Nr" xd:direction="in" xd:interfaceRef="s_axi_CRTLSc" xd:busTypeRef="axilite" xd:offset="0x200" xd:handshakeRef="ap_none" xd:dataWidth="16"/>
+  <xd:arg xd:name="ciphertext[]" xd:originalName="ciphertext" xd:direction="inout" xd:interfaceRef="ciphertext" xd:busTypeRef="axilite" xd:offset="0x200" xd:arraySize="16" xd:dataWidth="8"/>
+  <xd:arg xd:name="iv[]" xd:originalName="iv" xd:direction="inout" xd:interfaceRef="iv" xd:busTypeRef="axilite" xd:offset="0x200" xd:arraySize="16" xd:dataWidth="8"/>
+  <xd:latencyEstimates xd:best-case="2047" xd:worst-case="2667" xd:average-case="2357"/>
+  <xd:resourceEstimates xd:LUT="944" xd:FF="627" xd:BRAM="10" xd:DSP="0"/>
+</xd:acceleratorMap>

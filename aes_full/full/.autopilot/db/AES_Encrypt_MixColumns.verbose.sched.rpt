@@ -1,0 +1,995 @@
+
+
+================================================================
+== Vivado HLS Report for 'AES_Encrypt_MixColumns'
+================================================================
+* Date:           Wed Nov 20 22:18:38 2019
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        aes_full
+* Solution:       full
+* Product family: artix7
+* Target device:  xc7a200tfbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.10|      3.54|        0.00|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   61|   61|   61|   61|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   48|   48|         3|          -|          -|    16|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 16
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / (!exitcond)
+15 --> 
+	16  / true
+16 --> 
+	14  / true
+* FSM state operations: 
+
+ <State 1>: 2.39ns
+ST_1: state_addr [1/1] 0.00ns
+:0  %state_addr = getelementptr [16 x i8]* %state, i64 0, i64 0
+
+ST_1: tmp_state [1/1] 0.00ns
+:1  %tmp_state = alloca [16 x i8], align 16
+
+ST_1: state_load [2/2] 2.39ns
+:2  %state_load = load i8* %state_addr, align 1
+
+
+ <State 2>: 2.39ns
+ST_2: state_load [1/2] 2.39ns
+:2  %state_load = load i8* %state_addr, align 1
+
+ST_2: state_addr_17 [1/1] 0.00ns
+:6  %state_addr_17 = getelementptr [16 x i8]* %state, i64 0, i64 1
+
+ST_2: state_load_16 [2/2] 2.39ns
+:7  %state_load_16 = load i8* %state_addr_17, align 1
+
+ST_2: state_addr_18 [1/1] 0.00ns
+:11  %state_addr_18 = getelementptr [16 x i8]* %state, i64 0, i64 2
+
+ST_2: state_load_17 [2/2] 2.39ns
+:12  %state_load_17 = load i8* %state_addr_18, align 1
+
+
+ <State 3>: 2.39ns
+ST_3: state_load_16 [1/2] 2.39ns
+:7  %state_load_16 = load i8* %state_addr_17, align 1
+
+ST_3: state_load_17 [1/2] 2.39ns
+:12  %state_load_17 = load i8* %state_addr_18, align 1
+
+ST_3: state_addr_19 [1/1] 0.00ns
+:13  %state_addr_19 = getelementptr [16 x i8]* %state, i64 0, i64 3
+
+ST_3: state_load_18 [2/2] 2.39ns
+:14  %state_load_18 = load i8* %state_addr_19, align 1
+
+ST_3: state_addr_20 [1/1] 0.00ns
+:53  %state_addr_20 = getelementptr [16 x i8]* %state, i64 0, i64 4
+
+ST_3: state_load_19 [2/2] 2.39ns
+:54  %state_load_19 = load i8* %state_addr_20, align 1
+
+
+ <State 4>: 2.39ns
+ST_4: addr [1/1] 0.00ns
+:3  %addr = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load)
+
+ST_4: cipher_addr [1/1] 0.00ns
+:4  %cipher_addr = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr
+
+ST_4: cipher_load [2/2] 2.39ns
+:5  %cipher_load = load i8* %cipher_addr, align 1
+
+ST_4: addr1 [1/1] 0.00ns
+:8  %addr1 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_16)
+
+ST_4: cipher_addr_1 [1/1] 0.00ns
+:9  %cipher_addr_1 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr1
+
+ST_4: cipher_load_1 [2/2] 2.39ns
+:10  %cipher_load_1 = load i8* %cipher_addr_1, align 1
+
+ST_4: state_load_18 [1/2] 2.39ns
+:14  %state_load_18 = load i8* %state_addr_19, align 1
+
+ST_4: addr2 [1/1] 0.00ns
+:20  %addr2 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_16)
+
+ST_4: cipher_addr_2 [1/1] 0.00ns
+:21  %cipher_addr_2 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr2
+
+ST_4: cipher_load_2 [2/2] 2.39ns
+:22  %cipher_load_2 = load i8* %cipher_addr_2, align 1
+
+ST_4: addr3 [1/1] 0.00ns
+:23  %addr3 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_17)
+
+ST_4: cipher_addr_3 [1/1] 0.00ns
+:24  %cipher_addr_3 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr3
+
+ST_4: cipher_load_3 [2/2] 2.39ns
+:25  %cipher_load_3 = load i8* %cipher_addr_3, align 1
+
+ST_4: state_load_19 [1/2] 2.39ns
+:54  %state_load_19 = load i8* %state_addr_20, align 1
+
+ST_4: state_addr_21 [1/1] 0.00ns
+:58  %state_addr_21 = getelementptr [16 x i8]* %state, i64 0, i64 5
+
+ST_4: state_load_20 [2/2] 2.39ns
+:59  %state_load_20 = load i8* %state_addr_21, align 1
+
+ST_4: state_addr_22 [1/1] 0.00ns
+:63  %state_addr_22 = getelementptr [16 x i8]* %state, i64 0, i64 6
+
+ST_4: state_load_21 [2/2] 2.39ns
+:64  %state_load_21 = load i8* %state_addr_22, align 1
+
+
+ <State 5>: 3.54ns
+ST_5: cipher_load [1/2] 2.39ns
+:5  %cipher_load = load i8* %cipher_addr, align 1
+
+ST_5: cipher_load_1 [1/2] 2.39ns
+:10  %cipher_load_1 = load i8* %cipher_addr_1, align 1
+
+ST_5: tmp1 [1/1] 0.00ns (grouped into LUT with out node tmp_7)
+:15  %tmp1 = xor i8 %cipher_load_1, %cipher_load
+
+ST_5: tmp2 [1/1] 0.00ns (grouped into LUT with out node tmp_7)
+:16  %tmp2 = xor i8 %state_load_17, %state_load_18
+
+ST_5: tmp_7 [1/1] 1.15ns (out node of the LUT)
+:17  %tmp_7 = xor i8 %tmp2, %tmp1
+
+ST_5: cipher_load_2 [1/2] 2.39ns
+:22  %cipher_load_2 = load i8* %cipher_addr_2, align 1
+
+ST_5: cipher_load_3 [1/2] 2.39ns
+:25  %cipher_load_3 = load i8* %cipher_addr_3, align 1
+
+ST_5: tmp3 [1/1] 0.00ns (grouped into LUT with out node tmp_1)
+:26  %tmp3 = xor i8 %state_load_18, %state_load
+
+ST_5: tmp4 [1/1] 0.00ns (grouped into LUT with out node tmp_1)
+:27  %tmp4 = xor i8 %cipher_load_2, %cipher_load_3
+
+ST_5: tmp_1 [1/1] 1.15ns (out node of the LUT)
+:28  %tmp_1 = xor i8 %tmp4, %tmp3
+
+ST_5: addr4 [1/1] 0.00ns
+:31  %addr4 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_17)
+
+ST_5: cipher_addr_4 [1/1] 0.00ns
+:32  %cipher_addr_4 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr4
+
+ST_5: cipher_load_4 [2/2] 2.39ns
+:33  %cipher_load_4 = load i8* %cipher_addr_4, align 1
+
+ST_5: addr5 [1/1] 0.00ns
+:34  %addr5 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_18)
+
+ST_5: cipher_addr_5 [1/1] 0.00ns
+:35  %cipher_addr_5 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr5
+
+ST_5: cipher_load_5 [2/2] 2.39ns
+:36  %cipher_load_5 = load i8* %cipher_addr_5, align 1
+
+ST_5: addr6 [1/1] 0.00ns
+:42  %addr6 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load)
+
+ST_5: cipher_addr_6 [1/1] 0.00ns
+:43  %cipher_addr_6 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr6
+
+ST_5: cipher_load_6 [2/2] 2.39ns
+:44  %cipher_load_6 = load i8* %cipher_addr_6, align 1
+
+ST_5: addr7 [1/1] 0.00ns
+:45  %addr7 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_18)
+
+ST_5: cipher_addr_7 [1/1] 0.00ns
+:46  %cipher_addr_7 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr7
+
+ST_5: cipher_load_7 [2/2] 2.39ns
+:47  %cipher_load_7 = load i8* %cipher_addr_7, align 1
+
+ST_5: state_load_20 [1/2] 2.39ns
+:59  %state_load_20 = load i8* %state_addr_21, align 1
+
+ST_5: state_load_21 [1/2] 2.39ns
+:64  %state_load_21 = load i8* %state_addr_22, align 1
+
+ST_5: state_addr_23 [1/1] 0.00ns
+:65  %state_addr_23 = getelementptr [16 x i8]* %state, i64 0, i64 7
+
+ST_5: state_load_22 [2/2] 2.39ns
+:66  %state_load_22 = load i8* %state_addr_23, align 1
+
+ST_5: state_addr_24 [1/1] 0.00ns
+:105  %state_addr_24 = getelementptr [16 x i8]* %state, i64 0, i64 8
+
+ST_5: state_load_23 [2/2] 2.39ns
+:106  %state_load_23 = load i8* %state_addr_24, align 1
+
+
+ <State 6>: 3.54ns
+ST_6: tmp_state_addr [1/1] 0.00ns
+:18  %tmp_state_addr = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 0
+
+ST_6: stg_78 [1/1] 2.39ns
+:19  store i8 %tmp_7, i8* %tmp_state_addr, align 16
+
+ST_6: tmp_state_addr_17 [1/1] 0.00ns
+:29  %tmp_state_addr_17 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 1
+
+ST_6: stg_80 [1/1] 2.39ns
+:30  store i8 %tmp_1, i8* %tmp_state_addr_17, align 1
+
+ST_6: cipher_load_4 [1/2] 2.39ns
+:33  %cipher_load_4 = load i8* %cipher_addr_4, align 1
+
+ST_6: cipher_load_5 [1/2] 2.39ns
+:36  %cipher_load_5 = load i8* %cipher_addr_5, align 1
+
+ST_6: tmp5 [1/1] 0.00ns (grouped into LUT with out node tmp_s)
+:37  %tmp5 = xor i8 %state_load_16, %state_load
+
+ST_6: tmp6 [1/1] 0.00ns (grouped into LUT with out node tmp_s)
+:38  %tmp6 = xor i8 %cipher_load_4, %cipher_load_5
+
+ST_6: tmp_s [1/1] 1.15ns (out node of the LUT)
+:39  %tmp_s = xor i8 %tmp6, %tmp5
+
+ST_6: cipher_load_6 [1/2] 2.39ns
+:44  %cipher_load_6 = load i8* %cipher_addr_6, align 1
+
+ST_6: cipher_load_7 [1/2] 2.39ns
+:47  %cipher_load_7 = load i8* %cipher_addr_7, align 1
+
+ST_6: tmp7 [1/1] 0.00ns (grouped into LUT with out node tmp_3)
+:48  %tmp7 = xor i8 %state_load_17, %state_load_16
+
+ST_6: tmp8 [1/1] 0.00ns (grouped into LUT with out node tmp_3)
+:49  %tmp8 = xor i8 %cipher_load_6, %cipher_load_7
+
+ST_6: tmp_3 [1/1] 1.15ns (out node of the LUT)
+:50  %tmp_3 = xor i8 %tmp8, %tmp7
+
+ST_6: addr8 [1/1] 0.00ns
+:55  %addr8 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_19)
+
+ST_6: cipher_addr_8 [1/1] 0.00ns
+:56  %cipher_addr_8 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr8
+
+ST_6: cipher_load_8 [2/2] 2.39ns
+:57  %cipher_load_8 = load i8* %cipher_addr_8, align 1
+
+ST_6: addr9 [1/1] 0.00ns
+:60  %addr9 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_20)
+
+ST_6: cipher_addr_9 [1/1] 0.00ns
+:61  %cipher_addr_9 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr9
+
+ST_6: cipher_load_9 [2/2] 2.39ns
+:62  %cipher_load_9 = load i8* %cipher_addr_9, align 1
+
+ST_6: state_load_22 [1/2] 2.39ns
+:66  %state_load_22 = load i8* %state_addr_23, align 1
+
+ST_6: addr10 [1/1] 0.00ns
+:72  %addr10 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_20)
+
+ST_6: cipher_addr_10 [1/1] 0.00ns
+:73  %cipher_addr_10 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr10
+
+ST_6: cipher_load_10 [2/2] 2.39ns
+:74  %cipher_load_10 = load i8* %cipher_addr_10, align 1
+
+ST_6: addr11 [1/1] 0.00ns
+:75  %addr11 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_21)
+
+ST_6: cipher_addr_11 [1/1] 0.00ns
+:76  %cipher_addr_11 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr11
+
+ST_6: cipher_load_11 [2/2] 2.39ns
+:77  %cipher_load_11 = load i8* %cipher_addr_11, align 1
+
+ST_6: state_load_23 [1/2] 2.39ns
+:106  %state_load_23 = load i8* %state_addr_24, align 1
+
+ST_6: state_addr_25 [1/1] 0.00ns
+:110  %state_addr_25 = getelementptr [16 x i8]* %state, i64 0, i64 9
+
+ST_6: state_load_24 [2/2] 2.39ns
+:111  %state_load_24 = load i8* %state_addr_25, align 1
+
+ST_6: state_addr_26 [1/1] 0.00ns
+:115  %state_addr_26 = getelementptr [16 x i8]* %state, i64 0, i64 10
+
+ST_6: state_load_25 [2/2] 2.39ns
+:116  %state_load_25 = load i8* %state_addr_26, align 1
+
+
+ <State 7>: 3.54ns
+ST_7: tmp_state_addr_18 [1/1] 0.00ns
+:40  %tmp_state_addr_18 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 2
+
+ST_7: stg_110 [1/1] 2.39ns
+:41  store i8 %tmp_s, i8* %tmp_state_addr_18, align 2
+
+ST_7: tmp_state_addr_19 [1/1] 0.00ns
+:51  %tmp_state_addr_19 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 3
+
+ST_7: stg_112 [1/1] 2.39ns
+:52  store i8 %tmp_3, i8* %tmp_state_addr_19, align 1
+
+ST_7: cipher_load_8 [1/2] 2.39ns
+:57  %cipher_load_8 = load i8* %cipher_addr_8, align 1
+
+ST_7: cipher_load_9 [1/2] 2.39ns
+:62  %cipher_load_9 = load i8* %cipher_addr_9, align 1
+
+ST_7: tmp9 [1/1] 0.00ns (grouped into LUT with out node tmp_9)
+:67  %tmp9 = xor i8 %cipher_load_9, %cipher_load_8
+
+ST_7: tmp [1/1] 0.00ns (grouped into LUT with out node tmp_9)
+:68  %tmp = xor i8 %state_load_21, %state_load_22
+
+ST_7: tmp_9 [1/1] 1.15ns (out node of the LUT)
+:69  %tmp_9 = xor i8 %tmp, %tmp9
+
+ST_7: cipher_load_10 [1/2] 2.39ns
+:74  %cipher_load_10 = load i8* %cipher_addr_10, align 1
+
+ST_7: cipher_load_11 [1/2] 2.39ns
+:77  %cipher_load_11 = load i8* %cipher_addr_11, align 1
+
+ST_7: tmp10 [1/1] 0.00ns (grouped into LUT with out node tmp_2)
+:78  %tmp10 = xor i8 %state_load_22, %state_load_19
+
+ST_7: tmp11 [1/1] 0.00ns (grouped into LUT with out node tmp_2)
+:79  %tmp11 = xor i8 %cipher_load_10, %cipher_load_11
+
+ST_7: tmp_2 [1/1] 1.15ns (out node of the LUT)
+:80  %tmp_2 = xor i8 %tmp11, %tmp10
+
+ST_7: addr12 [1/1] 0.00ns
+:83  %addr12 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_21)
+
+ST_7: cipher_addr_12 [1/1] 0.00ns
+:84  %cipher_addr_12 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr12
+
+ST_7: cipher_load_12 [2/2] 2.39ns
+:85  %cipher_load_12 = load i8* %cipher_addr_12, align 1
+
+ST_7: addr13 [1/1] 0.00ns
+:86  %addr13 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_22)
+
+ST_7: cipher_addr_13 [1/1] 0.00ns
+:87  %cipher_addr_13 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr13
+
+ST_7: cipher_load_13 [2/2] 2.39ns
+:88  %cipher_load_13 = load i8* %cipher_addr_13, align 1
+
+ST_7: addr14 [1/1] 0.00ns
+:94  %addr14 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_19)
+
+ST_7: cipher_addr_14 [1/1] 0.00ns
+:95  %cipher_addr_14 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr14
+
+ST_7: cipher_load_14 [2/2] 2.39ns
+:96  %cipher_load_14 = load i8* %cipher_addr_14, align 1
+
+ST_7: addr15 [1/1] 0.00ns
+:97  %addr15 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_22)
+
+ST_7: cipher_addr_15 [1/1] 0.00ns
+:98  %cipher_addr_15 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr15
+
+ST_7: cipher_load_15 [2/2] 2.39ns
+:99  %cipher_load_15 = load i8* %cipher_addr_15, align 1
+
+ST_7: state_load_24 [1/2] 2.39ns
+:111  %state_load_24 = load i8* %state_addr_25, align 1
+
+ST_7: state_load_25 [1/2] 2.39ns
+:116  %state_load_25 = load i8* %state_addr_26, align 1
+
+ST_7: state_addr_27 [1/1] 0.00ns
+:117  %state_addr_27 = getelementptr [16 x i8]* %state, i64 0, i64 11
+
+ST_7: state_load_26 [2/2] 2.39ns
+:118  %state_load_26 = load i8* %state_addr_27, align 1
+
+ST_7: state_addr_28 [1/1] 0.00ns
+:157  %state_addr_28 = getelementptr [16 x i8]* %state, i64 0, i64 12
+
+ST_7: state_load_27 [2/2] 2.39ns
+:158  %state_load_27 = load i8* %state_addr_28, align 1
+
+
+ <State 8>: 3.54ns
+ST_8: tmp_state_addr_20 [1/1] 0.00ns
+:70  %tmp_state_addr_20 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 4
+
+ST_8: stg_142 [1/1] 2.39ns
+:71  store i8 %tmp_9, i8* %tmp_state_addr_20, align 4
+
+ST_8: tmp_state_addr_21 [1/1] 0.00ns
+:81  %tmp_state_addr_21 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 5
+
+ST_8: stg_144 [1/1] 2.39ns
+:82  store i8 %tmp_2, i8* %tmp_state_addr_21, align 1
+
+ST_8: cipher_load_12 [1/2] 2.39ns
+:85  %cipher_load_12 = load i8* %cipher_addr_12, align 1
+
+ST_8: cipher_load_13 [1/2] 2.39ns
+:88  %cipher_load_13 = load i8* %cipher_addr_13, align 1
+
+ST_8: tmp12 [1/1] 0.00ns (grouped into LUT with out node tmp_4)
+:89  %tmp12 = xor i8 %state_load_20, %state_load_19
+
+ST_8: tmp13 [1/1] 0.00ns (grouped into LUT with out node tmp_4)
+:90  %tmp13 = xor i8 %cipher_load_12, %cipher_load_13
+
+ST_8: tmp_4 [1/1] 1.15ns (out node of the LUT)
+:91  %tmp_4 = xor i8 %tmp13, %tmp12
+
+ST_8: cipher_load_14 [1/2] 2.39ns
+:96  %cipher_load_14 = load i8* %cipher_addr_14, align 1
+
+ST_8: cipher_load_15 [1/2] 2.39ns
+:99  %cipher_load_15 = load i8* %cipher_addr_15, align 1
+
+ST_8: tmp14 [1/1] 0.00ns (grouped into LUT with out node tmp_5)
+:100  %tmp14 = xor i8 %state_load_21, %state_load_20
+
+ST_8: tmp15 [1/1] 0.00ns (grouped into LUT with out node tmp_5)
+:101  %tmp15 = xor i8 %cipher_load_14, %cipher_load_15
+
+ST_8: tmp_5 [1/1] 1.15ns (out node of the LUT)
+:102  %tmp_5 = xor i8 %tmp15, %tmp14
+
+ST_8: addr16 [1/1] 0.00ns
+:107  %addr16 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_23)
+
+ST_8: cipher_addr_16 [1/1] 0.00ns
+:108  %cipher_addr_16 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr16
+
+ST_8: cipher_load_16 [2/2] 2.39ns
+:109  %cipher_load_16 = load i8* %cipher_addr_16, align 1
+
+ST_8: addr17 [1/1] 0.00ns
+:112  %addr17 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_24)
+
+ST_8: cipher_addr_17 [1/1] 0.00ns
+:113  %cipher_addr_17 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr17
+
+ST_8: cipher_load_17 [2/2] 2.39ns
+:114  %cipher_load_17 = load i8* %cipher_addr_17, align 1
+
+ST_8: state_load_26 [1/2] 2.39ns
+:118  %state_load_26 = load i8* %state_addr_27, align 1
+
+ST_8: addr18 [1/1] 0.00ns
+:124  %addr18 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_24)
+
+ST_8: cipher_addr_18 [1/1] 0.00ns
+:125  %cipher_addr_18 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr18
+
+ST_8: cipher_load_18 [2/2] 2.39ns
+:126  %cipher_load_18 = load i8* %cipher_addr_18, align 1
+
+ST_8: addr19 [1/1] 0.00ns
+:127  %addr19 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_25)
+
+ST_8: cipher_addr_19 [1/1] 0.00ns
+:128  %cipher_addr_19 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr19
+
+ST_8: cipher_load_19 [2/2] 2.39ns
+:129  %cipher_load_19 = load i8* %cipher_addr_19, align 1
+
+ST_8: state_load_27 [1/2] 2.39ns
+:158  %state_load_27 = load i8* %state_addr_28, align 1
+
+ST_8: state_addr_29 [1/1] 0.00ns
+:162  %state_addr_29 = getelementptr [16 x i8]* %state, i64 0, i64 13
+
+ST_8: state_load_28 [2/2] 2.39ns
+:163  %state_load_28 = load i8* %state_addr_29, align 1
+
+ST_8: state_addr_30 [1/1] 0.00ns
+:167  %state_addr_30 = getelementptr [16 x i8]* %state, i64 0, i64 14
+
+ST_8: state_load_29 [2/2] 2.39ns
+:168  %state_load_29 = load i8* %state_addr_30, align 1
+
+
+ <State 9>: 3.54ns
+ST_9: tmp_state_addr_22 [1/1] 0.00ns
+:92  %tmp_state_addr_22 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 6
+
+ST_9: stg_174 [1/1] 2.39ns
+:93  store i8 %tmp_4, i8* %tmp_state_addr_22, align 2
+
+ST_9: tmp_state_addr_23 [1/1] 0.00ns
+:103  %tmp_state_addr_23 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 7
+
+ST_9: stg_176 [1/1] 2.39ns
+:104  store i8 %tmp_5, i8* %tmp_state_addr_23, align 1
+
+ST_9: cipher_load_16 [1/2] 2.39ns
+:109  %cipher_load_16 = load i8* %cipher_addr_16, align 1
+
+ST_9: cipher_load_17 [1/2] 2.39ns
+:114  %cipher_load_17 = load i8* %cipher_addr_17, align 1
+
+ST_9: tmp16 [1/1] 0.00ns (grouped into LUT with out node tmp_6)
+:119  %tmp16 = xor i8 %cipher_load_17, %cipher_load_16
+
+ST_9: tmp17 [1/1] 0.00ns (grouped into LUT with out node tmp_6)
+:120  %tmp17 = xor i8 %state_load_25, %state_load_26
+
+ST_9: tmp_6 [1/1] 1.15ns (out node of the LUT)
+:121  %tmp_6 = xor i8 %tmp17, %tmp16
+
+ST_9: cipher_load_18 [1/2] 2.39ns
+:126  %cipher_load_18 = load i8* %cipher_addr_18, align 1
+
+ST_9: cipher_load_19 [1/2] 2.39ns
+:129  %cipher_load_19 = load i8* %cipher_addr_19, align 1
+
+ST_9: tmp18 [1/1] 0.00ns (grouped into LUT with out node tmp_8)
+:130  %tmp18 = xor i8 %state_load_26, %state_load_23
+
+ST_9: tmp19 [1/1] 0.00ns (grouped into LUT with out node tmp_8)
+:131  %tmp19 = xor i8 %cipher_load_18, %cipher_load_19
+
+ST_9: tmp_8 [1/1] 1.15ns (out node of the LUT)
+:132  %tmp_8 = xor i8 %tmp19, %tmp18
+
+ST_9: addr20 [1/1] 0.00ns
+:135  %addr20 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_25)
+
+ST_9: cipher_addr_20 [1/1] 0.00ns
+:136  %cipher_addr_20 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr20
+
+ST_9: cipher_load_20 [2/2] 2.39ns
+:137  %cipher_load_20 = load i8* %cipher_addr_20, align 1
+
+ST_9: addr21 [1/1] 0.00ns
+:138  %addr21 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_26)
+
+ST_9: cipher_addr_21 [1/1] 0.00ns
+:139  %cipher_addr_21 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr21
+
+ST_9: cipher_load_21 [2/2] 2.39ns
+:140  %cipher_load_21 = load i8* %cipher_addr_21, align 1
+
+ST_9: addr22 [1/1] 0.00ns
+:146  %addr22 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_23)
+
+ST_9: cipher_addr_22 [1/1] 0.00ns
+:147  %cipher_addr_22 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr22
+
+ST_9: cipher_load_22 [2/2] 2.39ns
+:148  %cipher_load_22 = load i8* %cipher_addr_22, align 1
+
+ST_9: addr23 [1/1] 0.00ns
+:149  %addr23 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_26)
+
+ST_9: cipher_addr_23 [1/1] 0.00ns
+:150  %cipher_addr_23 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr23
+
+ST_9: cipher_load_23 [2/2] 2.39ns
+:151  %cipher_load_23 = load i8* %cipher_addr_23, align 1
+
+ST_9: state_load_28 [1/2] 2.39ns
+:163  %state_load_28 = load i8* %state_addr_29, align 1
+
+ST_9: state_load_29 [1/2] 2.39ns
+:168  %state_load_29 = load i8* %state_addr_30, align 1
+
+ST_9: state_addr_31 [1/1] 0.00ns
+:169  %state_addr_31 = getelementptr [16 x i8]* %state, i64 0, i64 15
+
+ST_9: state_load_30 [2/2] 2.39ns
+:170  %state_load_30 = load i8* %state_addr_31, align 1
+
+
+ <State 10>: 3.54ns
+ST_10: tmp_state_addr_24 [1/1] 0.00ns
+:122  %tmp_state_addr_24 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 8
+
+ST_10: stg_204 [1/1] 2.39ns
+:123  store i8 %tmp_6, i8* %tmp_state_addr_24, align 8
+
+ST_10: tmp_state_addr_25 [1/1] 0.00ns
+:133  %tmp_state_addr_25 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 9
+
+ST_10: stg_206 [1/1] 2.39ns
+:134  store i8 %tmp_8, i8* %tmp_state_addr_25, align 1
+
+ST_10: cipher_load_20 [1/2] 2.39ns
+:137  %cipher_load_20 = load i8* %cipher_addr_20, align 1
+
+ST_10: cipher_load_21 [1/2] 2.39ns
+:140  %cipher_load_21 = load i8* %cipher_addr_21, align 1
+
+ST_10: tmp20 [1/1] 0.00ns (grouped into LUT with out node tmp_10)
+:141  %tmp20 = xor i8 %state_load_24, %state_load_23
+
+ST_10: tmp21 [1/1] 0.00ns (grouped into LUT with out node tmp_10)
+:142  %tmp21 = xor i8 %cipher_load_20, %cipher_load_21
+
+ST_10: tmp_10 [1/1] 1.15ns (out node of the LUT)
+:143  %tmp_10 = xor i8 %tmp21, %tmp20
+
+ST_10: cipher_load_22 [1/2] 2.39ns
+:148  %cipher_load_22 = load i8* %cipher_addr_22, align 1
+
+ST_10: cipher_load_23 [1/2] 2.39ns
+:151  %cipher_load_23 = load i8* %cipher_addr_23, align 1
+
+ST_10: tmp22 [1/1] 0.00ns (grouped into LUT with out node tmp_11)
+:152  %tmp22 = xor i8 %state_load_25, %state_load_24
+
+ST_10: tmp23 [1/1] 0.00ns (grouped into LUT with out node tmp_11)
+:153  %tmp23 = xor i8 %cipher_load_22, %cipher_load_23
+
+ST_10: tmp_11 [1/1] 1.15ns (out node of the LUT)
+:154  %tmp_11 = xor i8 %tmp23, %tmp22
+
+ST_10: addr24 [1/1] 0.00ns
+:159  %addr24 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_27)
+
+ST_10: cipher_addr_24 [1/1] 0.00ns
+:160  %cipher_addr_24 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr24
+
+ST_10: cipher_load_24 [2/2] 2.39ns
+:161  %cipher_load_24 = load i8* %cipher_addr_24, align 1
+
+ST_10: addr25 [1/1] 0.00ns
+:164  %addr25 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_28)
+
+ST_10: cipher_addr_25 [1/1] 0.00ns
+:165  %cipher_addr_25 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr25
+
+ST_10: cipher_load_25 [2/2] 2.39ns
+:166  %cipher_load_25 = load i8* %cipher_addr_25, align 1
+
+ST_10: state_load_30 [1/2] 2.39ns
+:170  %state_load_30 = load i8* %state_addr_31, align 1
+
+ST_10: addr26 [1/1] 0.00ns
+:176  %addr26 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_28)
+
+ST_10: cipher_addr_26 [1/1] 0.00ns
+:177  %cipher_addr_26 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr26
+
+ST_10: cipher_load_26 [2/2] 2.39ns
+:178  %cipher_load_26 = load i8* %cipher_addr_26, align 1
+
+ST_10: addr27 [1/1] 0.00ns
+:179  %addr27 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_29)
+
+ST_10: cipher_addr_27 [1/1] 0.00ns
+:180  %cipher_addr_27 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr27
+
+ST_10: cipher_load_27 [2/2] 2.39ns
+:181  %cipher_load_27 = load i8* %cipher_addr_27, align 1
+
+
+ <State 11>: 3.54ns
+ST_11: tmp_state_addr_26 [1/1] 0.00ns
+:144  %tmp_state_addr_26 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 10
+
+ST_11: stg_231 [1/1] 2.39ns
+:145  store i8 %tmp_10, i8* %tmp_state_addr_26, align 2
+
+ST_11: tmp_state_addr_27 [1/1] 0.00ns
+:155  %tmp_state_addr_27 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 11
+
+ST_11: stg_233 [1/1] 2.39ns
+:156  store i8 %tmp_11, i8* %tmp_state_addr_27, align 1
+
+ST_11: cipher_load_24 [1/2] 2.39ns
+:161  %cipher_load_24 = load i8* %cipher_addr_24, align 1
+
+ST_11: cipher_load_25 [1/2] 2.39ns
+:166  %cipher_load_25 = load i8* %cipher_addr_25, align 1
+
+ST_11: tmp24 [1/1] 0.00ns (grouped into LUT with out node tmp_12)
+:171  %tmp24 = xor i8 %cipher_load_25, %cipher_load_24
+
+ST_11: tmp25 [1/1] 0.00ns (grouped into LUT with out node tmp_12)
+:172  %tmp25 = xor i8 %state_load_29, %state_load_30
+
+ST_11: tmp_12 [1/1] 1.15ns (out node of the LUT)
+:173  %tmp_12 = xor i8 %tmp25, %tmp24
+
+ST_11: cipher_load_26 [1/2] 2.39ns
+:178  %cipher_load_26 = load i8* %cipher_addr_26, align 1
+
+ST_11: cipher_load_27 [1/2] 2.39ns
+:181  %cipher_load_27 = load i8* %cipher_addr_27, align 1
+
+ST_11: tmp26 [1/1] 0.00ns (grouped into LUT with out node tmp_13)
+:182  %tmp26 = xor i8 %state_load_30, %state_load_27
+
+ST_11: tmp27 [1/1] 0.00ns (grouped into LUT with out node tmp_13)
+:183  %tmp27 = xor i8 %cipher_load_26, %cipher_load_27
+
+ST_11: tmp_13 [1/1] 1.15ns (out node of the LUT)
+:184  %tmp_13 = xor i8 %tmp27, %tmp26
+
+ST_11: addr28 [1/1] 0.00ns
+:187  %addr28 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_29)
+
+ST_11: cipher_addr_28 [1/1] 0.00ns
+:188  %cipher_addr_28 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr28
+
+ST_11: cipher_load_28 [2/2] 2.39ns
+:189  %cipher_load_28 = load i8* %cipher_addr_28, align 1
+
+ST_11: addr29 [1/1] 0.00ns
+:190  %addr29 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_30)
+
+ST_11: cipher_addr_29 [1/1] 0.00ns
+:191  %cipher_addr_29 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr29
+
+ST_11: cipher_load_29 [2/2] 2.39ns
+:192  %cipher_load_29 = load i8* %cipher_addr_29, align 1
+
+ST_11: addr30 [1/1] 0.00ns
+:198  %addr30 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %state_load_27)
+
+ST_11: cipher_addr_30 [1/1] 0.00ns
+:199  %cipher_addr_30 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr30
+
+ST_11: cipher_load_30 [2/2] 2.39ns
+:200  %cipher_load_30 = load i8* %cipher_addr_30, align 1
+
+ST_11: addr31 [1/1] 0.00ns
+:201  %addr31 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %state_load_30)
+
+ST_11: cipher_addr_31 [1/1] 0.00ns
+:202  %cipher_addr_31 = getelementptr [768 x i8]* @cipher, i64 0, i64 %addr31
+
+ST_11: cipher_load_31 [2/2] 2.39ns
+:203  %cipher_load_31 = load i8* %cipher_addr_31, align 1
+
+
+ <State 12>: 3.54ns
+ST_12: tmp_state_addr_28 [1/1] 0.00ns
+:174  %tmp_state_addr_28 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 12
+
+ST_12: stg_257 [1/1] 2.39ns
+:175  store i8 %tmp_12, i8* %tmp_state_addr_28, align 4
+
+ST_12: tmp_state_addr_29 [1/1] 0.00ns
+:185  %tmp_state_addr_29 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 13
+
+ST_12: stg_259 [1/1] 2.39ns
+:186  store i8 %tmp_13, i8* %tmp_state_addr_29, align 1
+
+ST_12: cipher_load_28 [1/2] 2.39ns
+:189  %cipher_load_28 = load i8* %cipher_addr_28, align 1
+
+ST_12: cipher_load_29 [1/2] 2.39ns
+:192  %cipher_load_29 = load i8* %cipher_addr_29, align 1
+
+ST_12: tmp28 [1/1] 0.00ns (grouped into LUT with out node tmp_14)
+:193  %tmp28 = xor i8 %state_load_28, %state_load_27
+
+ST_12: tmp29 [1/1] 0.00ns (grouped into LUT with out node tmp_14)
+:194  %tmp29 = xor i8 %cipher_load_28, %cipher_load_29
+
+ST_12: tmp_14 [1/1] 1.15ns (out node of the LUT)
+:195  %tmp_14 = xor i8 %tmp29, %tmp28
+
+ST_12: cipher_load_30 [1/2] 2.39ns
+:200  %cipher_load_30 = load i8* %cipher_addr_30, align 1
+
+ST_12: cipher_load_31 [1/2] 2.39ns
+:203  %cipher_load_31 = load i8* %cipher_addr_31, align 1
+
+ST_12: tmp30 [1/1] 0.00ns (grouped into LUT with out node tmp_15)
+:204  %tmp30 = xor i8 %state_load_29, %state_load_28
+
+ST_12: tmp31 [1/1] 0.00ns (grouped into LUT with out node tmp_15)
+:205  %tmp31 = xor i8 %cipher_load_30, %cipher_load_31
+
+ST_12: tmp_15 [1/1] 1.15ns (out node of the LUT)
+:206  %tmp_15 = xor i8 %tmp31, %tmp30
+
+
+ <State 13>: 2.39ns
+ST_13: tmp_state_addr_30 [1/1] 0.00ns
+:196  %tmp_state_addr_30 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 14
+
+ST_13: stg_271 [1/1] 2.39ns
+:197  store i8 %tmp_14, i8* %tmp_state_addr_30, align 2
+
+ST_13: tmp_state_addr_31 [1/1] 0.00ns
+:207  %tmp_state_addr_31 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 15
+
+ST_13: stg_273 [1/1] 2.39ns
+:208  store i8 %tmp_15, i8* %tmp_state_addr_31, align 1
+
+ST_13: stg_274 [1/1] 1.31ns
+:209  br label %1
+
+
+ <State 14>: 2.39ns
+ST_14: i [1/1] 0.00ns
+:0  %i = phi i5 [ 0, %0 ], [ %i_2, %2 ]
+
+ST_14: exitcond [1/1] 1.84ns
+:1  %exitcond = icmp eq i5 %i, -16
+
+ST_14: empty [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+
+ST_14: i_2 [1/1] 1.50ns
+:3  %i_2 = add i5 %i, 1
+
+ST_14: stg_279 [1/1] 0.00ns
+:4  br i1 %exitcond, label %3, label %2
+
+ST_14: tmp_16 [1/1] 0.00ns
+:0  %tmp_16 = zext i5 %i to i64
+
+ST_14: tmp_state_addr_32 [1/1] 0.00ns
+:1  %tmp_state_addr_32 = getelementptr inbounds [16 x i8]* %tmp_state, i64 0, i64 %tmp_16
+
+ST_14: tmp_state_load [2/2] 2.39ns
+:2  %tmp_state_load = load i8* %tmp_state_addr_32, align 1
+
+ST_14: stg_283 [1/1] 0.00ns
+:0  ret void
+
+
+ <State 15>: 2.39ns
+ST_15: tmp_state_load [1/2] 2.39ns
+:2  %tmp_state_load = load i8* %tmp_state_addr_32, align 1
+
+
+ <State 16>: 2.39ns
+ST_16: state_addr_32 [1/1] 0.00ns
+:3  %state_addr_32 = getelementptr [16 x i8]* %state, i64 0, i64 %tmp_16
+
+ST_16: stg_286 [1/1] 2.39ns
+:4  store i8 %tmp_state_load, i8* %state_addr_32, align 1
+
+ST_16: stg_287 [1/1] 0.00ns
+:5  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.1ns, clock uncertainty: 0ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

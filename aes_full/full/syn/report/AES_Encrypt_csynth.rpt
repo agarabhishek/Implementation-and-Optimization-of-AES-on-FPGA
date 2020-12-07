@@ -1,0 +1,264 @@
+
+
+================================================================
+== Vivado HLS Report for 'AES_Encrypt'
+================================================================
+* Date:           Wed Nov 20 22:18:41 2019
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        aes_full
+* Solution:       full
+* Product family: artix7
+* Target device:  xc7a200tfbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.10|      4.10|        0.00|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  2047|  2667|  2048|  2668|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+        |                                   |                        |  Latency  |  Interval | Pipeline|
+        |              Instance             |         Module         | min | max | min | max |   Type  |
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+        |grp_AES_Encrypt_MixColumns_fu_294  |AES_Encrypt_MixColumns  |   61|   61|   61|   61|   none  |
+        |grp_AES_Encrypt_ShiftRows_fu_301   |AES_Encrypt_ShiftRows   |   58|   58|   58|   58|   none  |
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        +----------------------+------+------+-----------+-----------+-----------+------+----------+
+        |                      |   Latency   | Iteration |  Initiation Interval  | Trip |          |
+        |       Loop Name      |  min |  max |  Latency  |  achieved |   target  | Count| Pipelined|
+        +----------------------+------+------+-----------+-----------+-----------+------+----------+
+        |- memcpy..iv          |    17|    17|          3|          1|          1|    16|    yes   |
+        |- Loop 2              |    48|    48|          3|          -|          -|    16|    no    |
+        |- L_rounds            |  1910|  2530| 191 ~ 253 |          -|          -|    10|    no    |
+        | + L_rounds.1         |    80|    80|          5|          -|          -|    16|    no    |
+        | + L_rounds.2         |    48|    48|          3|          -|          -|    16|    no    |
+        |- Loop 4              |    48|    48|          3|          -|          -|    16|    no    |
+        |- memcpy.ciphertext.  |    17|    17|          3|          1|          1|    16|    yes   |
+        +----------------------+------+------+-----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|     100|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        8|      -|     445|     735|
+|Memory           |        2|      -|      16|       2|
+|Multiplexer      |        -|      -|       -|     107|
+|Register         |        -|      -|     166|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |       10|      0|     627|     944|
++-----------------+---------+-------+--------+--------+
+|Available        |      730|    740|  269200|  129000|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        1|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+--------------------------+---------+-------+-----+-----+
+    |              Instance             |          Module          | BRAM_18K| DSP48E|  FF | LUT |
+    +-----------------------------------+--------------------------+---------+-------+-----+-----+
+    |AES_Encrypt_CRTLSc_s_axi_U         |AES_Encrypt_CRTLSc_s_axi  |        4|      0|  218|  212|
+    |grp_AES_Encrypt_MixColumns_fu_294  |AES_Encrypt_MixColumns    |        3|      0|  175|  472|
+    |grp_AES_Encrypt_ShiftRows_fu_301   |AES_Encrypt_ShiftRows     |        1|      0|   52|   51|
+    +-----------------------------------+--------------------------+---------+-------+-----+-----+
+    |Total                              |                          |        8|      0|  445|  735|
+    +-----------------------------------+--------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +----------+-------------------------------+---------+----+----+------+-----+------+-------------+
+    |  Memory  |             Module            | BRAM_18K| FF | LUT| Words| Bits| Banks| W*Bits*Banks|
+    +----------+-------------------------------+---------+----+----+------+-----+------+-------------+
+    |cipher_U  |AES_Encrypt_MixColumns_cipher  |        2|   0|   0|   768|    8|     1|         6144|
+    |state_U   |AES_Encrypt_state              |        0|  16|   2|    16|    8|     1|          128|
+    +----------+-------------------------------+---------+----+----+------+-----+------+-------------+
+    |Total     |                               |        2|  16|   2|   784|   16|     2|         6272|
+    +----------+-------------------------------+---------+----+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |i_3_fu_448_p2           |     +    |      0|  0|   5|           5|           1|
+    |i_4_fu_375_p2           |     +    |      0|  0|   5|           5|           1|
+    |i_5_fu_363_p2           |     +    |      0|  0|   4|           4|           1|
+    |i_6_fu_417_p2           |     +    |      0|  0|   5|           5|           1|
+    |i_fu_345_p2             |     +    |      0|  0|   5|           5|           1|
+    |indvar_next7_fu_472_p2  |     +    |      0|  0|   5|           5|           1|
+    |indvar_next_fu_328_p2   |     +    |      0|  0|   5|           5|           1|
+    |sum5_fu_432_p2          |     +    |      0|  0|   8|           8|           8|
+    |tmp_24_fu_405_p2        |     +    |      0|  0|   8|           8|           5|
+    |ap_sig_156              |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_209              |    and   |      0|  0|   1|           1|           1|
+    |exitcond1_fu_322_p2     |   icmp   |      0|  0|   3|           5|           6|
+    |exitcond8_fu_466_p2     |   icmp   |      0|  0|   3|           5|           6|
+    |exitcond_fu_357_p2      |   icmp   |      0|  0|   2|           4|           4|
+    |exitcond_i1_fu_339_p2   |   icmp   |      0|  0|   3|           5|           6|
+    |exitcond_i2_fu_411_p2   |   icmp   |      0|  0|   3|           5|           6|
+    |exitcond_i3_fu_369_p2   |   icmp   |      0|  0|   3|           5|           6|
+    |exitcond_i_fu_442_p2    |   icmp   |      0|  0|   3|           5|           6|
+    |is_0iter_fu_483_p2      |   icmp   |      0|  0|   2|           5|           1|
+    |tmp_21_fu_391_p2        |   icmp   |      0|  0|   2|           4|           4|
+    |grp_fu_306_p2           |    xor   |      0|  0|  12|           8|           8|
+    |tmp_20_fu_460_p2        |    xor   |      0|  0|  12|           8|           8|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 100|         111|          83|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  21|         24|    1|         24|
+    |ap_reg_ppiten_pp0_it2  |   1|          2|    1|          2|
+    |ap_reg_ppiten_pp1_it2  |   1|          2|    1|          2|
+    |cipher_address0        |  10|          3|   10|         30|
+    |expandedKey_address0   |   8|          3|    8|         24|
+    |i4_reg_238             |   4|          2|    4|          8|
+    |i_0_i1_reg_227         |   5|          2|    5|         10|
+    |i_0_i2_reg_261         |   5|          2|    5|         10|
+    |i_0_i_reg_272          |   5|          2|    5|         10|
+    |i_i_reg_250            |   5|          2|    5|         10|
+    |indvar6_reg_283        |   5|          2|    5|         10|
+    |indvar_phi_fu_219_p4   |   5|          2|    5|         10|
+    |indvar_reg_215         |   5|          2|    5|         10|
+    |state_address0         |  12|         13|    4|         52|
+    |state_address1         |   4|          3|    4|         12|
+    |state_ce0              |   1|          4|    1|          4|
+    |state_ce1              |   1|          3|    1|          3|
+    |state_d0               |   8|          7|    8|         56|
+    |state_we0              |   1|          4|    1|          4|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  | 107|         84|   79|        291|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------------+----+----+-----+-----------+
+    |                        Name                       | FF | LUT| Bits| Const Bits|
+    +---------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                          |  23|   0|   23|          0|
+    |ap_reg_grp_AES_Encrypt_MixColumns_fu_294_ap_start  |   1|   0|    1|          0|
+    |ap_reg_grp_AES_Encrypt_ShiftRows_fu_301_ap_start   |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it0                              |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it1                              |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it2                              |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp1_it0                              |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp1_it1                              |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp1_it2                              |   1|   0|    1|          0|
+    |ap_reg_ppstg_exitcond1_reg_489_pp0_iter1           |   1|   0|    1|          0|
+    |ap_reg_ppstg_exitcond8_reg_603_pp1_iter1           |   1|   0|    1|          0|
+    |ap_reg_ppstg_indvar_reg_215_pp0_iter1              |   5|   0|    5|          0|
+    |ap_reg_ppstg_is_0iter_reg_617_pp1_iter1            |   1|   0|    1|          0|
+    |cipher_load_reg_547                                |   8|   0|    8|          0|
+    |exitcond1_reg_489                                  |   1|   0|    1|          0|
+    |exitcond8_reg_603                                  |   1|   0|    1|          0|
+    |i4_reg_238                                         |   4|   0|    4|          0|
+    |i_0_i1_reg_227                                     |   5|   0|    5|          0|
+    |i_0_i2_reg_261                                     |   5|   0|    5|          0|
+    |i_0_i_reg_272                                      |   5|   0|    5|          0|
+    |i_3_reg_583                                        |   5|   0|    5|          0|
+    |i_4_reg_532                                        |   5|   0|    5|          0|
+    |i_5_reg_524                                        |   4|   0|    4|          0|
+    |i_6_reg_564                                        |   5|   0|    5|          0|
+    |i_i_reg_250                                        |   5|   0|    5|          0|
+    |i_reg_506                                          |   5|   0|    5|          0|
+    |indvar6_reg_283                                    |   5|   0|    5|          0|
+    |indvar_next_reg_493                                |   5|   0|    5|          0|
+    |indvar_reg_215                                     |   5|   0|    5|          0|
+    |is_0iter_reg_617                                   |   1|   0|    1|          0|
+    |iv_read_reg_498                                    |   8|   0|    8|          0|
+    |reg_312                                            |   8|   0|    8|          0|
+    |reg_317                                            |   8|   0|    8|          0|
+    |state_addr_31_reg_516                              |   4|   0|    4|          0|
+    |state_addr_33_reg_593                              |   4|   0|    4|          0|
+    |state_addr_34_reg_537                              |   4|   0|    4|          0|
+    |state_addr_36_reg_574                              |   4|   0|    4|          0|
+    |tmp_20_reg_598                                     |   8|   0|    8|          0|
+    |tmp_21_reg_552                                     |   1|   0|    1|          0|
+    |tmp_24_reg_556                                     |   4|   0|    8|          4|
+    +---------------------------------------------------+----+----+-----+-----------+
+    |Total                                              | 166|   0|  170|          4|
+    +---------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------------+-----+-----+------------+--------------+--------------+
+|s_axi_CRTLSc_AWVALID    |  in |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_AWREADY    | out |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_AWADDR     |  in |   10|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_WVALID     |  in |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_WREADY     | out |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_WDATA      |  in |   32|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_WSTRB      |  in |    4|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_ARVALID    |  in |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_ARREADY    | out |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_ARADDR     |  in |   10|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_RVALID     | out |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_RREADY     |  in |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_RDATA      | out |   32|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_RRESP      | out |    2|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_BVALID     | out |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_BREADY     |  in |    1|    s_axi   |    CRTLSc    |    scalar    |
+|s_axi_CRTLSc_BRESP      | out |    2|    s_axi   |    CRTLSc    |    scalar    |
+|ap_clk                  |  in |    1| ap_ctrl_hs |  AES_Encrypt | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs |  AES_Encrypt | return value |
+|interrupt               | out |    1| ap_ctrl_hs |  AES_Encrypt | return value |
+|ciphertext_req_din      | out |    1|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_req_full_n   |  in |    1|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_req_write    | out |    1|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_rsp_empty_n  |  in |    1|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_rsp_read     | out |    1|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_address      | out |   32|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_datain       |  in |    8|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_dataout      | out |    8|   ap_bus   |  ciphertext  |    pointer   |
+|ciphertext_size         | out |   32|   ap_bus   |  ciphertext  |    pointer   |
+|iv_req_din              | out |    1|   ap_bus   |      iv      |    pointer   |
+|iv_req_full_n           |  in |    1|   ap_bus   |      iv      |    pointer   |
+|iv_req_write            | out |    1|   ap_bus   |      iv      |    pointer   |
+|iv_rsp_empty_n          |  in |    1|   ap_bus   |      iv      |    pointer   |
+|iv_rsp_read             | out |    1|   ap_bus   |      iv      |    pointer   |
+|iv_address              | out |   32|   ap_bus   |      iv      |    pointer   |
+|iv_datain               |  in |    8|   ap_bus   |      iv      |    pointer   |
+|iv_dataout              | out |    8|   ap_bus   |      iv      |    pointer   |
+|iv_size                 | out |   32|   ap_bus   |      iv      |    pointer   |
++------------------------+-----+-----+------------+--------------+--------------+
+

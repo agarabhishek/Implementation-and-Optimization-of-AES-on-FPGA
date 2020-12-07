@@ -1,0 +1,54 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "F:/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: F:/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_AES_Encrypt_top -prj AES_Encrypt.prj --initfile F:/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s AES_Encrypt -debug wave 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AESL_axi_slave_CRTLSc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_CRTLSc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_AES_Encrypt_top
+INFO: [VRFC 10-2458] undeclared symbol ap_clk, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:125]
+INFO: [VRFC 10-2458] undeclared symbol ap_rst_n, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:126]
+INFO: [VRFC 10-2458] undeclared symbol ap_rst_n_n, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:131]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_AddRoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_AddRoundKey
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_AddRoundKey_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_AddRoundKey_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_CRTLSc_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_CRTLSc_s_axi
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_CRTLSc_s_axi_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_MixColumns.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_MixColumns_cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns_cipher_rom
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns_cipher
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_ShiftRows.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_ShiftRows
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_SubBytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_SubBytes_cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes_cipher_rom
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes_cipher
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi_ram(DEP...
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi_ram(DEP...
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi(C_S_AXI...
+Compiling module xil_defaultlib.AES_Encrypt_AddRoundKey
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns_cipher_ro...
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns_cipher(Da...
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns
+Compiling module xil_defaultlib.AES_Encrypt_AddRoundKey_1
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes_cipher_rom
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes_cipher(Data...
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes
+Compiling module xil_defaultlib.AES_Encrypt_ShiftRows
+Compiling module xil_defaultlib.AES_Encrypt_default
+Compiling module xil_defaultlib.AESL_axi_slave_CRTLSc
+Compiling module xil_defaultlib.apatb_AES_Encrypt_top
+Built simulation snapshot AES_Encrypt

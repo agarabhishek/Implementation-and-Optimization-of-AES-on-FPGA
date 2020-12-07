@@ -1,0 +1,166 @@
+AES with Nb = 4 columns, Nk = 4 (32-bit) words i.e. CipherKeyLenghth = 16 bytes (or 128 bits), Nr = 10 rounds
+
+key = 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF 
+
+expandedKey = 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF 0xD6 0xAA 0x74 0xFD 0xD2 0xAF 0x72 0xFA 0xDA 0xA6 0x78 0xF1 0xD6 0xAB 0x76 0xFE 0xB6 0x92 0xCF 0xB 0x64 0x3D 0xBD 0xF1 0xBE 0x9B 0xC5 0x0 0x68 0x30 0xB3 0xFE 0xB6 0xFF 0x74 0x4E 0xD2 0xC2 0xC9 0xBF 0x6C 0x59 0xC 0xBF 0x4 0x69 0xBF 0x41 0x47 0xF7 0xF7 0xBC 0x95 0x35 0x3E 0x3 0xF9 0x6C 0x32 0xBC 0xFD 0x5 0x8D 0xFD 0x3C 0xAA 0xA3 0xE8 0xA9 0x9F 0x9D 0xEB 0x50 0xF3 0xAF 0x57 0xAD 0xF6 0x22 0xAA 0x5E 0x39 0xF 0x7D 0xF7 0xA6 0x92 0x96 0xA7 0x55 0x3D 0xC1 0xA 0xA3 0x1F 0x6B 0x14 0xF9 0x70 0x1A 0xE3 0x5F 0xE2 0x8C 0x44 0xA 0xDF 0x4D 0x4E 0xA9 0xC0 0x26 0x47 0x43 0x87 0x35 0xA4 0x1C 0x65 0xB9 0xE0 0x16 0xBA 0xF4 0xAE 0xBF 0x7A 0xD2 0x54 0x99 0x32 0xD1 0xF0 0x85 0x57 0x68 0x10 0x93 0xED 0x9C 0xBE 0x2C 0x97 0x4E 0x13 0x11 0x1D 0x7F 0xE3 0x94 0x4A 0x17 0xF3 0x7 0xA7 0x8B 0x4D 0x2B 0x30 0xC5 
+
+plaintext = A B C D E F G H I J K L M N O P  <=> 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 
+
+ciphertext = 9C DD 85 DE 85 B4 8B ED 89 2F 2 D8 A5 CB DA CB  <=> 156 221 133 222 133 180 139 237 137 47 2 216 165 203 218 203 
+
+D:\Projects\AESonFPGA\AES_HLS\AES_HLS\aes_full\full\sim\verilog>call xelab xil_defaultlib.apatb_AES_Encrypt_top -prj AES_Encrypt.prj --initfile "F:/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s AES_Encrypt -debug wave 
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "F:/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: F:/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_AES_Encrypt_top -prj AES_Encrypt.prj --initfile F:/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s AES_Encrypt -debug wave 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AESL_axi_slave_CRTLSc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_CRTLSc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_AES_Encrypt_top
+INFO: [VRFC 10-2458] undeclared symbol ap_clk, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:125]
+INFO: [VRFC 10-2458] undeclared symbol ap_rst_n, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:126]
+INFO: [VRFC 10-2458] undeclared symbol ap_rst_n_n, assumed default net type wire [D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v:131]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_AddRoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_AddRoundKey
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_AddRoundKey_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_AddRoundKey_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_CRTLSc_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_CRTLSc_s_axi
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_CRTLSc_s_axi_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_MixColumns.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_MixColumns_cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns_cipher_rom
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_MixColumns_cipher
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_ShiftRows.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_ShiftRows
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_SubBytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt_SubBytes_cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes_cipher_rom
+INFO: [VRFC 10-311] analyzing module AES_Encrypt_SubBytes_cipher
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi_ram(DEP...
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi_ram(DEP...
+Compiling module xil_defaultlib.AES_Encrypt_CRTLSc_s_axi(C_S_AXI...
+Compiling module xil_defaultlib.AES_Encrypt_AddRoundKey
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns_cipher_ro...
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns_cipher(Da...
+Compiling module xil_defaultlib.AES_Encrypt_MixColumns
+Compiling module xil_defaultlib.AES_Encrypt_AddRoundKey_1
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes_cipher_rom
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes_cipher(Data...
+Compiling module xil_defaultlib.AES_Encrypt_SubBytes
+Compiling module xil_defaultlib.AES_Encrypt_ShiftRows
+Compiling module xil_defaultlib.AES_Encrypt_default
+Compiling module xil_defaultlib.AESL_axi_slave_CRTLSc
+Compiling module xil_defaultlib.apatb_AES_Encrypt_top
+Built simulation snapshot AES_Encrypt
+
+****** Webtalk v2016.2 (64-bit)
+  **** SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+  **** IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/xsim.dir/AES_Encrypt/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Sep 09 11:59:22 2019...
+
+****** xsim v2016.2 (64-bit)
+  **** SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+  **** IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/AES_Encrypt/xsim_script.tcl
+# xsim {AES_Encrypt} -autoloadwcfg -tclbatch {AES_Encrypt.tcl}
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+source AES_Encrypt.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set plaintext__expandedKey__Nr__ciphertext__return_group [add_wave_group plaintext__expandedKey__Nr__ciphertext__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/interrupt -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_BRESP -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_BREADY -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_BVALID -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_RRESP -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_RDATA -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_RREADY -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_RVALID -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_ARREADY -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_ARVALID -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_ARADDR -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_WSTRB -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_WDATA -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_WREADY -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_WVALID -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_AWREADY -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_AWVALID -into $plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/s_axi_CRTLSc_AWADDR -into $plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_done -into $blocksiggroup
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_idle -into $blocksiggroup
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_ready -into $blocksiggroup
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_start -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_AES_Encrypt_top/AESL_inst_AES_Encrypt/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_AES_Encrypt_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/LENGTH_plaintext -into $tb_portdepth_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/LENGTH_expandedKey -into $tb_portdepth_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/LENGTH_ciphertext -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_plaintext__expandedKey__Nr__ciphertext__return_group [add_wave_group plaintext__expandedKey__Nr__ciphertext__return(axi_slave) -into $tbcinoutgroup]
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_INTERRUPT -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_BRESP -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_BREADY -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_BVALID -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_RRESP -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_RDATA -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_RREADY -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_RVALID -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_ARREADY -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_ARVALID -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_ARADDR -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_WSTRB -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_WDATA -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_WREADY -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_WVALID -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_AWREADY -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_AWVALID -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -color #ffff00 -radix hex
+## add_wave /apatb_AES_Encrypt_top/CRTLSc_AWADDR -into $tb_plaintext__expandedKey__Nr__ciphertext__return_group -radix hex
+## save_wave_config AES_Encrypt.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [0.00%] @ "9755000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 9795 ns : File "D:/Projects/AESonFPGA/AES_HLS/AES_HLS/aes_full/full/sim/verilog/AES_Encrypt.autotb.v" Line 280
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Sep 09 11:59:37 2019...
+AES with Nb = 4 columns, Nk = 4 (32-bit) words i.e. CipherKeyLenghth = 16 bytes (or 128 bits), Nr = 10 rounds
+
+key = 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF 
+
+expandedKey = 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF 0xD6 0xAA 0x74 0xFD 0xD2 0xAF 0x72 0xFA 0xDA 0xA6 0x78 0xF1 0xD6 0xAB 0x76 0xFE 0xB6 0x92 0xCF 0xB 0x64 0x3D 0xBD 0xF1 0xBE 0x9B 0xC5 0x0 0x68 0x30 0xB3 0xFE 0xB6 0xFF 0x74 0x4E 0xD2 0xC2 0xC9 0xBF 0x6C 0x59 0xC 0xBF 0x4 0x69 0xBF 0x41 0x47 0xF7 0xF7 0xBC 0x95 0x35 0x3E 0x3 0xF9 0x6C 0x32 0xBC 0xFD 0x5 0x8D 0xFD 0x3C 0xAA 0xA3 0xE8 0xA9 0x9F 0x9D 0xEB 0x50 0xF3 0xAF 0x57 0xAD 0xF6 0x22 0xAA 0x5E 0x39 0xF 0x7D 0xF7 0xA6 0x92 0x96 0xA7 0x55 0x3D 0xC1 0xA 0xA3 0x1F 0x6B 0x14 0xF9 0x70 0x1A 0xE3 0x5F 0xE2 0x8C 0x44 0xA 0xDF 0x4D 0x4E 0xA9 0xC0 0x26 0x47 0x43 0x87 0x35 0xA4 0x1C 0x65 0xB9 0xE0 0x16 0xBA 0xF4 0xAE 0xBF 0x7A 0xD2 0x54 0x99 0x32 0xD1 0xF0 0x85 0x57 0x68 0x10 0x93 0xED 0x9C 0xBE 0x2C 0x97 0x4E 0x13 0x11 0x1D 0x7F 0xE3 0x94 0x4A 0x17 0xF3 0x7 0xA7 0x8B 0x4D 0x2B 0x30 0xC5 
+
+plaintext = A B C D E F G H I J K L M N O P  <=> 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 
+
+ciphertext = 9C DD 85 DE 85 B4 8B ED 89 2F 2 D8 A5 CB DA CB  <=> 156 221 133 222 133 180 139 237 137 47 2 216 165 203 218 203 
